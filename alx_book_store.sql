@@ -8,9 +8,10 @@ USE alx_book_store;
 CREATE TABLE Books (
     books_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(130) NOT NULL,
-    author_id INT FOREIGN KEY (author_id) REFERENCES Authors(author_id),
+    author_id INT,
     Price DOUBLE NOT NULL,
-    publication_date DATE
+    publication_date DATE,
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
 # Create the authors table
@@ -30,8 +31,9 @@ CREATE TABLE Customers (
 # Create the Orders table
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+    customer_id INT,
     order_date DATE NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 # Create the Order_Details table
